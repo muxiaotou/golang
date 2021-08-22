@@ -13,9 +13,10 @@ func main() {
 	fmt.Println("rabbit2 count is ", rabbit_born2(n, 1, 1))
 
 	//阶乘：N!=N*(N-1)*(N-2)......
-	fmt.Println("factorial1 value is ", factorial1(n))
-	fmt.Println("factorial2 value is ", factorial2(n, 1))
+	fmt.Println("factorial1 value is ", factorial1(n))    //递归
+	fmt.Println("factorial2 value is ", factorial2(n, 1)) //尾递归
 
+	//二分查找，前提是一个已经排好序的数列
 	array := []int{1, 3, 7, 9, 16, 21, 110, 243, 999}
 	target := 21
 	result := binarysearch(array, target, 0, len(array)-1)
@@ -33,6 +34,7 @@ func main() {
 
 }
 
+//递归，求斐波拉契数列的和，仅需要一个参数来控制数列的长度即可
 func rabbit_born1(n int) int {
 	if n < 3 { //n<3, 触发递归结束的锚点
 		return 1
@@ -40,6 +42,7 @@ func rabbit_born1(n int) int {
 	return rabbit_born1(n-1) + rabbit_born1(n-2)
 }
 
+//尾递归，求斐波拉契数列的和，需要三个参数，一个是长度，另外两个是记录递归累加值，即数列第一、二位置的数字的结果值
 func rabbit_born2(n int, acc1 int, acc2 int) int { //相比普通递归，尾递归它增加两个累加器acc1和acc2，并给出初始的值，即n为1，2 时的结果
 	if n == 1 {
 		return acc1
@@ -47,6 +50,7 @@ func rabbit_born2(n int, acc1 int, acc2 int) int { //相比普通递归，尾递
 	return rabbit_born2(n-1, acc2, acc1+acc2)
 }
 
+//递归，求阶乘
 func factorial1(n int) int {
 	if n == 1 {
 		return 1
@@ -54,6 +58,7 @@ func factorial1(n int) int {
 	return n * factorial1(n-1)
 }
 
+//尾递归，求阶乘，需要两个参数，一个记录长度，一个记录已经计算的结果值
 func factorial2(n int, acc int) int {
 	if n == 1 {
 		return acc
@@ -61,7 +66,7 @@ func factorial2(n int, acc int) int {
 	return factorial2(n-1, acc*n)
 }
 
-//二分查找递归方法
+//二分查找递归方法，需要四个参数，一个是原始数列，一个是目标值，一个是数列的首、尾坐标
 func binarysearch(array []int, target int, l, r int) int {
 	if l > r {
 		//l -> left, r -> rigth, 如果l > r, 则越界了
@@ -84,7 +89,7 @@ func binarysearch(array []int, target int, l, r int) int {
 	}
 }
 
-//二分查找非递归方法
+//二分查找非递归方法，还是定义四个变量，左右跟上面递归方法一样，但是实现使用if进行判断，最终通过控制数列的比较位置来查找
 func binarysearch2(array []int, target int, l, r int) int {
 	ltemp := l
 	rtemp := r
