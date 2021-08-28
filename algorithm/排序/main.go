@@ -135,7 +135,33 @@ func Sort6(s []int) []int {
 //2.f分区过程，将比基数大的放到右边，比基数小的放到左边
 //3.再对左右区间重复第二步，直到各区间只有一个数
 func partition(arr []int, begin, end int) int {
+	i := begin + 1
+	j := end
 
+	for i < j {
+		if arr[i] > arr[begin] {
+			arr[i], arr[j] = arr[j], arr[i]
+			j--
+		} else {
+			i++
+		}
+	}
+	//此时i=j
+	//确定begin放在哪里
+	if arr[i] >= arr[begin] {
+		i--
+	}
+
+	arr[begin], arr[i] = arr[i], arr[begin]
+	return i
+}
+
+func quicksort(a []int, begin, end int) {
+	if begin < end {
+		mid := partition(a, begin, end)
+		quicksort(a, begin, mid-1)
+		quicksort(a, mid+1, end)
+	}
 }
 
 func main() {
@@ -162,5 +188,10 @@ func main() {
 	s3 := []int{6, 4, 5, 2, 3, 1}
 	fmt.Println("Sort7")
 	fmt.Println(Sort7(s3))
+
+	s4 := []int{5, 9, 1, 6, 8, 14, 6, 49, 25, 4, 6, 3}
+	fmt.Println("Sort8")
+	quicksort(s4, 0, len(s4)-1)
+	fmt.Println(s4)
 
 }
