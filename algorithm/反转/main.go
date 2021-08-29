@@ -24,6 +24,15 @@ func reverse2(s string) string {
 	return t
 }
 
+func reverse4(s []string) []string {
+	for i, j := 0, len(s)-1; i < j; {
+		s[i], s[j] = s[j], s[i]
+		i++
+		j--
+	}
+	return s
+}
+
 //slice reverse
 func reverse3(s []string) []string {
 	l := len(s)
@@ -40,5 +49,7 @@ func main() {
 	fmt.Println(reverse2(s))
 	s1 := []string{"abc", "def"}
 	fmt.Println(reverse3(s1))
+	s2 := []string{"a", "e", "f"}
+	fmt.Println(reverse4(s2))
 
 }
