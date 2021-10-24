@@ -3,13 +3,42 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"sync"
 	"time"
 )
 
+//未给channel分配内存时，即为nil channel，对nil channel读、写均会阻塞，var chan1 chan int
+//不断向channel c中发送[0,10)的随机数
+func send(c chan int) {
+	for {
+		c <- rand.Intn(10)
+	}
+}
+
+func add(c chan int) {
+	sum := 0
+	//NewTimer定时器，After(d)和NewTiner(d).C等价
+	t := time.NewTimer(1 * time.Second)
+
+	for {
+		//1秒内，将一直选择第一个case
+		//一秒后，t.C可读，将选择第二个case
+		//c编程nil channel后，两个case分支均阻塞
+		select {
+		case input := <-c:
+			sum = sum + input
+			//fmt.Println(input)
+		case <-t.C:
+			c = nil
+			fmt.Println(sum)
+		}
+	}
+}
+
 func main() {
 	//非缓冲chan，要求一端读取，一端写入，channel的大小为零，所以读写操作一定要匹配
-	//如若不使用子goroutine，无论第11行还是14行先执行谁，主goroutine都会阻塞(golang会panic，提示dead lock)；所以此处应该先启动一个子goroutine读(或写)，再在主goroutine当中写(或读)
+	//如若不使用子goroutine，主goroutine读或者写都会阻塞(golang会panic，提示dead lock)；所以此处应该先启动一个子goroutine读(或写)，再在主goroutine当中写(或读)
 	nochan := make(chan int)
 	go func(ch chan int) {
 		data := <-ch
@@ -135,4 +164,12 @@ func main() {
 
 	<-quit //暂时阻塞，直到可读
 	fmt.Println("main exist")
+
+	//给channel赋值nil，或者仅仅声明var ch1 chan int的均为nil channel，对该channel读写会永远阻塞
+	fmt.Println("start nil channel test")
+	c := make(chan int)
+	go add(c)
+	go send(c)
+	time.Sleep(3 * time.Second)
+
 }
