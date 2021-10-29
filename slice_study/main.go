@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 //https://www.cnblogs.com/qcrao-2018/p/10631989.html
+//https://www.cnblogs.com/snowInPluto/p/7477365.html
 func main() {
 	//golang可以基于数组、切片，以及直接创建三种方式来创建切片
 	//先定义一个数组
