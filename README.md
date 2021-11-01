@@ -30,6 +30,11 @@
     
     字符串遍历有两种方法，可以看string_study当中的示例代码
     
-#值传递---未看
+#值传递
     https://www.cnblogs.com/snowInPluto/p/7477365.html 
+    
+#defer
+    defer在函数执行完毕或者运行抛出panic前执行
+    文件的关闭  defer f.Close()
+    如果定义了多个defer语句，按照先进后出的顺序执行
 
