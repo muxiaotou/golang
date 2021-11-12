@@ -37,4 +37,7 @@
     defer在函数执行完毕或者运行抛出panic前执行
     文件的关闭  defer f.Close()
     如果定义了多个defer语句，按照先进后出的顺序执行
+    
+    
+#发现了一个比较牛逼的网站，地鼠文档：https://www.topgoer.cn/
 
