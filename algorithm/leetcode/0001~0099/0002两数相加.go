@@ -14,16 +14,20 @@ type ListNode struct {
 }
 
 func Solution1(l1, l2 *ListNode) (head *ListNode) {
-	var tail *ListNode //使用定义的tail来逐步保存链表尾
+	var tail *ListNode //使用定义的tail新链表来逐步保存链表尾
 	n1, n2, carry := 0, 0, 0
 	for l1 != nil || l2 != nil {
 		if l1 != nil {
 			n1 = l1.Val
 			l1 = l1.Next
+		} else {
+			n1 = 0
 		}
 		if l2 != nil {
 			n2 = l2.Val
 			l2 = l2.Next
+		} else {
+			n2 = 0
 		}
 		sum := n1 + n2 + carry
 		sum, carry = sum%10, sum/10 //sum表示相加后留在当前位置的熟知，carry表示进位的数值
@@ -112,6 +116,6 @@ func main() {
 	l64 := &ListNode{Val: 9}
 	l63.Next = l64
 
-	//[8 9 9 9 9 9 9 1]
+	//[8 9 9 9 0 0 0 1]
 	fmt.Println(Traverse(Solution1(l51, l61)))
 }
