@@ -19,7 +19,7 @@ func palindnum1(num int) bool {
 
 	s := strconv.Itoa(num)          //数字转成字符串
 	for i := 0; i < len(s)/2; i++ { //遍历一半即可
-		if s[i] != s[len(s)-i-1] { //注意收、尾索引
+		if s[i] != s[len(s)-i-1] { //注意收、尾索引，有一次不满足回文要求，就不是回文，返回false
 			return false
 		}
 	}
