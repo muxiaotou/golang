@@ -24,7 +24,7 @@ func add(c chan int) {
 	for {
 		//1秒内，将一直选择第一个case
 		//一秒后，t.C可读，将选择第二个case
-		//c编程nil channel后，两个case分支均阻塞
+		//c变成nil channel后，两个case分支均阻塞
 		select {
 		case input := <-c:
 			sum = sum + input
@@ -85,6 +85,7 @@ func main() {
 		fmt.Println("goroutine1 exited")
 	}(nochan2)
 
+	//如果range的channel为nil，则永久阻塞
 	for data := range nochan2 {
 		fmt.Println("receive data is ", data)
 	}
@@ -166,10 +167,23 @@ func main() {
 	fmt.Println("main exist")
 
 	//给channel赋值nil，或者仅仅声明var ch1 chan int的均为nil channel，对该channel读写会永远阻塞
+	//var nochan7 chan int
+	//go func() {
+	//	nochan7 <- 888
+	//}()
+	//
+	//tmp := <-nochan7
+	//fmt.Println(tmp)
+
 	fmt.Println("start nil channel test")
 	c := make(chan int)
 	go add(c)
 	go send(c)
 	time.Sleep(3 * time.Second)
 
+	//	select只能用于channel
+	//	select{} select语句中不包含case语句和default语句时，那么协程将陷入永久性阻塞
+	//https://studygolang.com/articles/12992?fr=sidebar
+	//select {} 死循环，但是前面需要再写点代码，要不然代码panic，死锁
+	//for {}  死循环
 }

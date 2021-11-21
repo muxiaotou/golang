@@ -13,6 +13,8 @@ func main() {
 	//方法一：先声明，再初始化或者通过:=将声明和初始化合并为一条语句
 	var testMap map[string]int
 	//testMap["zero"] = 0,此处由于testMap仅仅是声明，还未初始化，为nil，赋值会panic
+	//nil的map，或者key不存在的map读，均会返回map对应value的零值
+	fmt.Println(testMap["bbb"])
 	testMap = map[string]int{
 		"one":   1,
 		"two":   2,
@@ -64,4 +66,15 @@ func main() {
 	for _, k := range keys {
 		fmt.Println("sorted: ", k, testMap[k])
 	}
+
+	//map初始化容量(len)为3，实际可以超过3,这一点和slice不一样
+	//map make时len不是必须的，当有新元素添加时，都会检查是否需要扩容
+	//slice是make是必须指定len，因此确定了内存空间范围，直接赋值时超过空间大小就越界了，slice提供了append操作，新元素
+	//添加时，会检查是否需要扩容
+	testMap2 := make(map[string]int, 3)
+	testMap2["one"] = 1
+	testMap2["two"] = 2
+	testMap2["three"] = 3
+	testMap2["four"] = 4
+	fmt.Println(testMap2)
 }
