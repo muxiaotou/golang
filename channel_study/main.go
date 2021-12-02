@@ -86,6 +86,7 @@ func main() {
 	}(nochan2)
 
 	//如果range的channel为nil，则永久阻塞
+	//channel当中没有元素，range会阻塞，一直等待nochan2 关闭后，再退出
 	for data := range nochan2 {
 		fmt.Println("receive data is ", data)
 	}

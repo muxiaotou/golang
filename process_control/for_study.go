@@ -46,7 +46,7 @@ func main() {
 	//可迭代的集合(数组、切片、字典、字符串、channel)
 	//string/array/slice返回index和value
 	//map返回key和value
-	//channel返回元素【仅且仅能返回一个值】
+	//channel返回元素【仅且仅能返回一个值】，当channel被close后range退出
 	//for可以遍历array、slice、string和key为整形递增的map
 	//for range可以完成所有for的事情，并可以遍历key为string类型的map以及遍历channel
 

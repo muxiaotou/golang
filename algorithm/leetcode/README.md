@@ -13,5 +13,11 @@
 
 #
     一刷leetcode，二刷牛客网
+
+#
+    后面扒的一些网址，有空了看看
+    https://wizardforcel.gitbooks.io/the-art-of-programming-by-july/content/index.html
+    https://chende.ren/2020/11/25172308-002-type-memory-size.html
+    https://www.jianshu.com/p/8d074e8d02aa
     
     
