@@ -36,7 +36,7 @@ func threeadd(num []int) (res [][]int) {
 					right--
 				}
 				mid++
-				right--
+				right-- //因为仅三数之和，第一个数固定后，当有满足条件的子串后，mid和right均需要移动，只有一个移动是没有意义的
 			}
 		} //当完成此for循环，即固定了left位置，遍历了left+1至len(s)-1位置里面所有符合的列表项
 		//	因为整个slice已经排序，外层的left会去重，因此每个符合的slice的首元素都不会重复
