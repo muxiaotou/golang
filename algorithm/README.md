@@ -3,7 +3,10 @@
         
 #
     感谢https://hunterhug.github.io/goa.c 大神的开源，学习时以此网站为提纲
-    
+    https://laravelacademy.org/books/golang-tutorials ，正在和下面链接，结合起来看20211211
+    https://xiaochen1024.com/courseware/60b4f11ab1aa91002eb53b18/60b4f191b1aa91002eb53b1a  分类看看这个人的视频
+    ##############计划#################：
+        12月底前显示按照leetcode顺序刷题，1月中旬开始按照分类的方法刷题
     常见的典型数据结构：
         链表
         栈和队列

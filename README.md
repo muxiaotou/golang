@@ -7,6 +7,7 @@
     进度：
     文档：https://geekr.dev/golang-tutorial
     进度：https://geekr.dev/posts/go-conditional-statement 10月24日
+    https://laravelacademy.org/books/golang-tutorials 
 
 #零值
     array、struct，每个元素或字段都是对应类型的零值
