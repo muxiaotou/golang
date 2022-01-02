@@ -8,3 +8,5 @@ package main
 //空接口   interface{}，任何类型都可以赋值给空接口类型的变量
 //var v1 interface{} =1
 //var v2 interface{} = true
+
+//https://www.jianshu.com/p/a5bc8add7c6e  strunct内嵌interface

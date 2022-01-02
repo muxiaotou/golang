@@ -144,6 +144,7 @@ func main() {
 	fmt.Println("main exited")
 
 	//通过for、select、channel实现超时机制
+	//select当中case表达式必须是channel的收发操作
 	nochan6 := make(chan int)
 	quit := make(chan bool)
 
@@ -184,6 +185,8 @@ func main() {
 
 	//	select只能用于channel
 	//	select{} select语句中不包含case语句和default语句时，那么协程将陷入永久性阻塞
+	//  当存在可以收发的 Channel 时，直接处理该 Channel 对应的 case；
+	//  当不存在可以收发的 Channel 时，执行 default 中的语句；
 	//https://studygolang.com/articles/12992?fr=sidebar
 	//select {} 死循环，但是前面需要再写点代码，要不然代码panic，死锁
 	//for {}  死循环
