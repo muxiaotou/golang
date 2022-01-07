@@ -13,6 +13,14 @@
     array、struct，每个元素或字段都是对应类型的零值
     slice、map、对于零值是nil
     bool: false, int: 0, float: 0.0, string: "", pointer\function\interface\slice\channel\map: nil
+
+#类型比较
+    可比较类型：布尔、整型、浮点数、复数、字符串
+        指针值(两个指针指向同一变量或者同为nil，则相等)、
+        channel(两个channel由同一个make创建或者同为nil)、interface(两个interface的动态值和动态类型都相等或者同为nil)
+    不可比较类型：map、slice、func(此三类仅仅只能与nil进行比较)
+    struct、数组：所有字段或者元素是可比较的，那struct和数组本身就是可以比较的
+        
 #var声明变量
     var 变量名 类型 = 表达式，如果省略了表达式，就使用类型的零值初始化变量
     num := 仅在函数内定义正确，函数外定义失败
