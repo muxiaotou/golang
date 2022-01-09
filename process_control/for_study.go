@@ -1,5 +1,7 @@
 package main
 
+//https://blog.csdn.net/whatday/article/details/118252737  for循环多个变量避坑
+
 func main() {
 	//go语言循环语言仅支持for关键字，而不支持while和do-while结构
 	//和条件语句、分支语句一样，左花括号{必须与for处于同一行
