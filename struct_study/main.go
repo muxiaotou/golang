@@ -92,4 +92,21 @@ func main() {
 	//但是接口的变量却不能随意混合调用值接收者方法和指针接收者方法
 	//（1）如果类中实现接口的成员方法都是值方法，则进行接口赋值时，传递类实例的值类型或者指针类型均可
 	//（2）否则[接口的成员方法都是指针方法]只能传递指针类型
+
+	//	初始赋值struct
+	type happy struct {
+		name    string
+		isHappy bool
+	}
+	m1 := new(happy)
+	m2 := &happy{}
+	m3 := &happy{"chenli", false}
+	m4 := &happy{name: "chenli", isHappy: false}
+
+	//分行赋值，最后一行后面需要增加逗号
+	m5 := &happy{
+		name:    "chenli",
+		isHappy: false,
+	}
+	fmt.Println(m1, m2, m3, m4, m5)
 }

@@ -77,4 +77,12 @@ func main() {
 	testMap2["three"] = 3
 	testMap2["four"] = 4
 	fmt.Println(testMap2)
+
+	//map初始赋值，一行和多行的区别：最后一行是否有逗号分隔
+	m := map[string]int{"beijing": 1, "xi'an": 2}
+	m1 := map[string]int{
+		"beijing": 1,
+		"xi'an":   2,
+	}
+	fmt.Println(m, m1)
 }
