@@ -1,4 +1,17 @@
     看一下这个：
-    context
-    进制转换：二进制、十进制、八进制、十六进制等之间的互转
+    context，那几个并发控制
+    [done]进制转换：二进制、十进制、八进制、十六进制等之间的互转
     https://docs.kilvn.com/The-Golang-Standard-Library-by-Example/  一些标准库，值得好好学习学习
+    strconv\containrs  用来排序、创建链表等
+    sql熟悉
+    git命令
+    ansible
+    写一个openapi的自动化测试代码出来
+    系统进程、线程区别等
+    IO栈、VFS等、系统调用
+    raft
+    mount原理
+    ssh原理
+    软链、硬链
+    TCP\IP三次握手
+    UDP TCP
