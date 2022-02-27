@@ -15,4 +15,7 @@ func main() {
 
 	s1 := "aBC e 1 223 F"
 	fmt.Println(strings.ToLower(s1))
+
+	s2 := 0b10111111
+	fmt.Printf("%d\n", s2)
 }

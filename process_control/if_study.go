@@ -27,4 +27,8 @@ func main() {
 	//	} else {
 	//		do something
 	//	}
+
+	//	if _, ok := nmap[n[k]]; !ok {
+	//		nmap[n[k]] = m[k]
+	//	}
 }
