@@ -23,3 +23,5 @@
 # 2021-11-01开始新一轮的数据结构和算法练习
     TODO:
         https://www.cnblogs.com/hitfire/articles/6597654.html
+
+# https://mp.weixin.qq.com/s/Z6zISNEZDRqRJn5YpNpl_A 阿里云开发者《快速入门数据结构和算法》
