@@ -10,3 +10,5 @@ package main
 //var v2 interface{} = true
 
 //https://www.jianshu.com/p/a5bc8add7c6e  strunct内嵌interface
+
+//整理一下？  https://juejin.cn/post/6844903559335526407
