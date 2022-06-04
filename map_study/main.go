@@ -10,8 +10,8 @@ import (
 func main() {
 	/*
 		map中的key可以是任何的类型，只要它的值能比较是否相等，即能否进行==比较操作。
-		key可以使布尔值、数字、字符串、指针、channel、接口类型、结构体(成员都能进行==操作)、只包含上述类型的数组
-		key不能是slice、map、function
+		key可以使布尔值、数字、字符串、指针、channel、接口类型、结构体(struct中成员都必须能进行==操作)、只包含上述类型的数组
+		key不能是slice、map、function等不能比较的类型
 	*/
 
 	//map有两种初始化方法

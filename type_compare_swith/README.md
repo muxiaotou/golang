@@ -8,6 +8,10 @@
     包括数组、struct结构体
 3.引用类型
     slice、map、channel、pointer
+4.接口类型
+    Error、io.Reader等
+5.函数类型
+    函数也是一种类型，且不可比较
 
     
 ### golang类型转换
