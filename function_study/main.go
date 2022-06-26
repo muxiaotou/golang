@@ -2,6 +2,12 @@
 //博大精深，暂时看不懂，先留着以后看吧】
 package main
 
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
 //import "fmt"
 
 func main() {
@@ -59,4 +65,29 @@ func main() {
 	//func(a, b int) {
 	//	fmt.Println(a + b)
 	//}(1, 3)
+
+	//	匿名函数一，最终结果  vol4  vol4  vol4 vol4
+	keys := []string{"vol1", "vol2", "vol3", "vol4"}
+	wg1 := sync.WaitGroup{}
+	wg1.Add(len(keys))
+	for _, k := range keys {
+		go func() {
+			time.Sleep(5 * time.Second)
+			fmt.Println(k) //k使用的函数外全局变量，最终执行的时候k已经变成了vol4,
+			wg1.Done()
+		}()
+	}
+	wg1.Wait()
+
+	//	匿名函数二，最终结果  vol1  vol2  vol3  vl4（顺序每次不一定一致）
+	wg2 := sync.WaitGroup{}
+	wg2.Add(len(keys))
+	for _, k := range keys {
+		go func(k string) {
+			time.Sleep(5 * time.Second)
+			fmt.Println(k) //k使用的是函数内局部变量，每次协程起匿名函数的时候即已经赋好了值
+			wg2.Done()
+		}(k)
+	}
+	wg2.Wait()
 }

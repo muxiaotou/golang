@@ -188,6 +188,6 @@ func main() {
 	//  当存在可以收发的 Channel 时，直接处理该 Channel 对应的 case；
 	//  当不存在可以收发的 Channel 时，执行 default 中的语句；
 	//https://studygolang.com/articles/12992?fr=sidebar
-	//select {} 死循环，但是前面需要再写点代码，要不然代码panic，死锁
+	//select {} 死循环，但是前面需要再写点代码，要不然代码panic，死锁，可以放到main函数里面阻塞main函数
 	//for {}  死循环
 }

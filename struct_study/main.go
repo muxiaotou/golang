@@ -109,4 +109,32 @@ func main() {
 		isHappy: false,
 	}
 	fmt.Println(m1, m2, m3, m4, m5)
+
+	//struct slice
+	type s1 struct {
+		Age  int
+		Name string
+	}
+
+	//赋值，写法一
+	//r1 := []s1{
+	//	{19, "chenli"},
+	//	{24, "juanjun"},
+	//}
+
+	//赋值，写法二
+	r1 := []s1{
+		s1{
+			Age:  19,
+			Name: "beibei",
+		},
+		s1{
+			Age:  38,
+			Name: "mama",
+		},
+	}
+
+	for _, i := range r1 {
+		fmt.Println("name is ", i.Name, ", age is ", i.Age)
+	}
 }
