@@ -45,5 +45,17 @@ func main() {
 	//二进制转换其他进制
 	s3 := 0b11111 //0b开头的数字，自动推导为二进制
 	fmt.Println(s3)
-	fmt.Printf("%T,%#b", s3, s3)
+	fmt.Printf("%T,%#b\n", s3, s3)
+
+	type point struct {
+		x, y int
+	}
+
+	p := point{1, 2}
+
+	fmt.Printf("%v\n", p)  //{1 2},
+	fmt.Printf("%+v\n", p) //{x:1 y:2}  包含结构体字段名
+	fmt.Printf("%#v\n", p) //main.point{x:1, y:2}  go语法表示
+	fmt.Printf("%T\n", p)  //打印类型
+
 }

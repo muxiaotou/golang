@@ -103,4 +103,6 @@ func main() {
 	////slice7[4] = 5 //越界直接赋值，panic，可以用append追加
 	//fmt.Println(slice7)
 
+	//切片拷贝
+
 }

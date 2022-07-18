@@ -47,4 +47,12 @@ func main() {
 	}
 	wg.Wait()
 
+	//goroutine传入外部变量，保证每次printf的正确性，如若未传入，最终由于外部变量变化，导致printf打印非预期
+	names := []string{"Eric", "Harry", "Robert", "Jim", "Mark"}
+	for _, name := range names {
+		go func(who string) {
+			fmt.Printf("Hello, %s !\n", who)
+		}(name)
+	}
+	time.Sleep(2 * time.Second)
 }
